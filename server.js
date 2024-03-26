@@ -11,11 +11,11 @@ tweets.forEach((tweet, index)=> {
 app.use(express.static("public"));
 
 //handle requests for dynamic data
-app.get("/tweets", (request, response) => {
+app.get("/tweets/:count/:username", (request, response) => {
 
 
 //pull out count. If !count use 1
-const {count = 1, username } = request.query;
+const {count = 1, username } = request.params;
 
 //convert count to number and check it exists
 const countAsNum = Number(count)
